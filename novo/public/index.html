@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicite seu orçamento | Zart's Estamparia</title>
+  <meta name="description"
+    content="Solicite seu orçamento de camisetas, uniformes, canecas, ecobags e estampas personalizadas na Zart's. Preencha o formulário e receba o atendimento pelo WhatsApp.">
+  <meta name="theme-color" content="#0a0a0c">
+  <script>
+    (function () {
+      var t = "dark";
+      try { t = localStorage.getItem("zarts-theme") || "dark"; } catch (e) { }
+      document.documentElement.setAttribute("data-theme", t);
+      document.documentElement.classList.add("js");
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="formulario.css">
+</head>
+<body>
+  <header class="cabeca" id="topo">
+    <div class="container">
+      <a class="logo" href="index.html" aria-label="Zart's — página inicial">
+        <span class="logo-mark">Z</span>
+        <span>ZART'S<small>ESTAMPARIA</small></span>
+      </a>
+      <nav class="nav" aria-label="Menu principal">
+        <a href="index.html#inicio">Início</a>
+        <a href="index.html#produtos">Produtos</a>
+        <a href="index.html#tecnicas">Técnicas</a>
+        <a href="index.html#como-funciona">Como funciona</a>
+        <a href="index.html#sobre">Sobre</a>
+        <a href="index.html#duvidas">Dúvidas</a>
+        <a href="index.html#contato">Contato</a>
+      </nav>
+      <div class="head-actions">
+        <button class="theme-btn" data-theme-toggle aria-label="Alternar tema">
+          <i class="fa-solid fa-moon i-moon"></i><i class="fa-solid fa-sun i-sun"></i>
+        </button>
+        <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="faixa" aria-hidden="true"></div>
+    <section class="section form-section">
+      <div class="container form-layout">
+        <aside class="side">
+          <div class="side-card">
+            <h2>Trabalhamos com</h2>
+            <ul class="benefits">
+              <li><i class="fa-solid fa-shield-halved"></i>
+                <div><strong>Qualidade e compromisso</strong><span>Aprovação da arte antes de produzir</span></div>
+              </li>
+            </ul>
+          </div>
+        </aside>
+        <div class="form-card">
+          <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+          <p class="form-hint">Todos os campos são obrigatórios, exceto as opções marcadas como
+            <span class="opt">(opcional)</span>.
+          </p>
+          <form id="formulario-estampa" novalidate>
+            <input type="text" id="site-hp" tabindex="-1" autocomplete="off" aria-hidden="true"
+              style="position:absolute;left:-9999px;opacity:0" name="site_hp">
+            <fieldset>
+              <legend><span class="num">1</span> Seus dados</legend>
+              <div class="grid">
+                <div class="campo full">
+                  <span class="label">Você está pedindo como</span>
+                  <div class="choices">
+                    <label class="choice"><input type="radio" name="tipo_cliente" value="Pessoa física" checked><span><i
+                          class="fa-regular fa-user"></i> Pessoa física</span></label>
+                    <label class="choice"><input type="radio" name="tipo_cliente" value="Empresa / Instituição"><span><i
+                          class="fa-regular fa-building"></i> Empresa / instituição</span></label>
+                  </div>
+                </div>
+                <div class="campo">
+                  <label for="nome"><i class="fa-regular fa-user"></i> Nome completo</label>
+                  <input id="nome" name="nome" type="text" placeholder="Ex.: Maria Silva" autocomplete="name" required>
+                  <small class="erro">Informe seu nome completo.</small>
+                </div>
+                <div class="campo" id="campo-empresa" hidden>
+                  <label for="empresa"><i class="fa-regular fa-building"></i> Nome da empresa</label>
+                  <input id="empresa" name="empresa" type="text" placeholder="Ex.: Padaria Bom Sabor"
+                    autocomplete="organization" required>
+                  <small class="erro">Informe o nome da empresa.</small>
+                </div>
+                <div class="campo">
+                  <label for="telefone"><i class="fa-brands fa-whatsapp"></i> WhatsApp / telefone</label>
+                  <input id="telefone" name="telefone" type="tel" placeholder="Ex.: (88) 99999-9999"
+                    autocomplete="tel" inputmode="tel" required>
+                  <small class="erro">Informe um telefone com DDD.</small>
+                </div>
+                <div class="campo">
+                  <label for="cidade"><i class="fa-solid fa-location-dot"></i> Cidade / bairro</label>
+                  <input id="cidade" name="cidade" type="text" placeholder="Ex.: Juazeiro do Norte — Centro"
+                    autocomplete="address-level2" required>
+                  <small class="erro">Informe sua cidade ou bairro.</small>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend><span class="num">2</span> Seu pedido</legend>
+              <div class="grid">
+                <div class="campo">
+                  <label for="produto"><i class="fa-solid fa-shirt"></i> Produto desejado</label>
+                  <select id="produto" name="produto" required>
+                    <option value="">Selecione o produto</option>
+                    <option>Camisetas</option>
+                    <option>Uniformes</option>
+                    <option>Canecas</option>
+                    <option>Ecobags</option>
+                    <option>Bolsas</option>
+                    <option>Outro</option>
+                  </select>
+                  
+                  <small class="erro">Escolha um produto.</small>
+                </div>
+                <div class="campo">
+                  <label for="modelo"><i class="fa-solid fa-tags"></i> Modelo / tipo</label>
+                  <select id="modelo" name="modelo" disabled required>
+                    <option value="">Escolha o produto primeiro</option>
+                  </select>
+                  <small class="erro">Escolha o modelo.</small>
+                </div>
+                <div class="campo" id="campo-outro" hidden>
+                  <label for="produto_outro"><i class="fa-solid fa-pen"></i> Qual produto?</label>
+                  <input id="produto_outro" name="produto_outro" type="text"
+                    placeholder="Ex.: Boné, avental, copo, almofada..." required>
+                  <small class="erro">Conte qual produto você quer.</small>
+                </div>
+                <div class="campo" id="campo-malha" hidden>
+                  <label for="malha"><i class="fa-solid fa-layer-group"></i> Tipo de malha</label>
+                  <select id="malha" name="malha" required>
+                    <option value="">Selecione a malha</option>
+                  </select>
+                  <small class="dica" id="dica-malha"></small>
+                  <small class="erro">Escolha o tipo de malha.</small>
+                </div>
+                <div class="campo">
+                  <label for="quantidade"><i class="fa-solid fa-hashtag"></i> Quantidade total</label>
+                  <input id="quantidade" name="quantidade" type="number" min="1" inputmode="numeric"
+                    placeholder="Ex.: 10" required>
+                  <small class="erro">Informe a quantidade (mínimo 1).</small>
+                </div>
+                <div class="campo">
+                  <label for="cor_peca"><i class="fa-solid fa-fill-drip"></i> Cor da peça</label>
+                  <input id="cor_peca" name="cor_peca" type="text" placeholder="Ex.: Branca, preta, azul-marinho"
+                    required>
+                  <small class="erro">Informe a cor da peça.</small>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend><span class="num">3</span> Personalização</legend>
+              <div class="grid">
+                <div class="campo full">
+                  <label for="tipo_estampa"><i class="fa-solid fa-palette"></i> Tipo de estampa</label>
+                  <select id="tipo_estampa" name="tipo_estampa" required>
+                    <option value="">Selecione o tipo</option>
+                    <option>DTF</option>
+                    <option>Sublimação básica</option>
+                    <option>Sublimação total</option>
+                    <option>Bordado</option>
+                    <option>Serigrafia</option>
+                    <option>Não sei / preciso de orientação</option>
+                  </select>
+                  <small class="dica">O cálculo automático do orçamento vale para camisetas e uniformes em
+                    <b>sublimação total</b>. Nos demais casos, o valor é confirmado pelo WhatsApp.</small>
+                  <small class="erro">Escolha o tipo de estampa.</small>
+                </div>
+                <div class="campo full" id="locais-wrap">
+                  <span class="label"><i class="fa-solid fa-location-crosshairs"></i> Onde será a estampa?</span>
+                  <div class="checks">
+                    <label class="check"><input type="checkbox" name="locais" value="Frente"> Frente</label>
+                    <label class="check"><input type="checkbox" name="locais" value="Costas"> Costas</label>
+                    <label class="check"><input type="checkbox" name="locais" value="Peito esquerdo"> Peito
+                      esquerdo</label>
+                    <label class="check"><input type="checkbox" name="locais" value="Manga esquerda"> Manga
+                      esquerda</label>
+                    <label class="check"><input type="checkbox" name="locais" value="Manga direita"> Manga
+                      direita</label>
+                    <label class="check"><input type="checkbox" name="locais" value="Outro local"> Outro local</label>
+                  </div>
+                  <small class="erro">Marque pelo menos um local da estampa.</small>
+                </div>
+                <div class="campo full" id="campo-arte">
+                  <span class="label"><i class="fa-solid fa-pen-ruler"></i> Sobre a arte</span>
+                  <div class="choices three">
+                    <label class="choice"><input type="radio" name="arte" value="Já tenho a arte pronta"><span><i
+                          class="fa-solid fa-check"></i> Já tenho a arte pronta</span></label>
+                    <label class="choice"><input type="radio" name="arte"
+                        value="Tenho a ideia e preciso que criem a arte"><span><i
+                          class="fa-solid fa-wand-magic-sparkles"></i> Preciso que criem a arte</span></label>
+                    <label class="choice"><input type="radio" name="arte"
+                        value="Tenho referência / logo para ajustar"><span><i class="fa-solid fa-image"></i> Tenho
+                        logo/referência</span></label>
+                  </div>
+                  <small class="dica" id="dica-arte"></small>
+                  <small class="erro">Escolha uma opção sobre a arte.</small>
+                </div>
+                <div class="campo full">
+                  <label class="check big"><input type="checkbox" name="nome_numero" value="Sim"> Quero <b>nome e/ou
+                      número</b> personalizado em cada peça <span class="opt">(opcional)</span></label>
+                </div>
+                <div class="upload full">
+                  <i class="fa-solid fa-cloud-arrow-up"></i>
+                  <div>
+                    <strong>Tem arquivos da arte, logo ou fotos?</strong>
+                    <p>Por segurança e simplicidade, os arquivos são enviados direto na conversa do WhatsApp logo após
+                      clicar em enviar. Se possível, mande a logo em PNG sem fundo, PDF, SVG, AI ou CDR.</p>
+                    <label class="check"><input type="checkbox" name="vai_enviar_arquivos" value="Sim"> Vou enviar os
+                      arquivos pelo WhatsApp <span class="opt">(opcional)</span></label>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend><span class="num">4</span> Prazo, entrega e pagamento</legend>
+              <div class="grid">
+                <div class="aviso-prazo full">
+                  <i class="fa-regular fa-clock"></i>
+                  <p><strong>Escolha a data em que você precisa receber o pedido.</strong> Confirmamos o prazo
+                    pelo WhatsApp.</p>
+                </div>
+                <div class="campo">
+                  <label for="prazo"><i class="fa-regular fa-calendar"></i> Data desejada</label>
+                  <input id="prazo" name="prazo" type="date" required>
+                  <small class="erro">Escolha a data desejada.</small>
+                </div>
+                <div class="campo">
+                  <label for="urgencia"><i class="fa-solid fa-gauge-high"></i> Urgência</label>
+                  <select id="urgencia" name="urgencia" required>
+                    <option value="">Selecione</option>
+                    <option>Sem pressa</option>
+                    <option>Tenho uma data importante</option>
+                    <option>Urgente</option>
+                  </select>
+                  <small class="erro">Escolha uma opção.</small>
+                </div>
+                <div class="campo full">
+                  <span class="label"><i class="fa-solid fa-truck"></i> Recebimento</span>
+                  <div class="choices">
+                    <label class="choice"><input type="radio" name="entrega" value="Retirar na loja" checked><span><i
+                          class="fa-solid fa-store"></i> Retirar na loja</span></label>
+                    <label class="choice"><input type="radio" name="entrega" value="Entrega"><span><i
+                          class="fa-solid fa-truck-fast"></i> Quero entrega</span></label>
+                  </div>
+                </div>
+                <div class="campo full" id="campo-endereco" hidden>
+                  <label for="endereco"><i class="fa-solid fa-house"></i> Endereço / bairro para entrega</label>
+                  <input id="endereco" name="endereco" type="text" placeholder="Rua, número, bairro e cidade"
+                    autocomplete="street-address" required>
+                  <small class="erro">Informe o endereço completo para entrega.</small>
+                </div>
+                <div class="campo full">
+                  <label for="pagamento"><i class="fa-solid fa-wallet"></i> Forma de pagamento preferida</label>
+                  <select id="pagamento" name="pagamento" required>
+                    <option value="">Selecione</option>
+                    <option>Pix</option>
+                    <option>Cartão de crédito</option>
+                    <option>Cartão de débito</option>
+                    <option>Dinheiro</option>
+                    <option>A combinar</option>
+                  </select>
+                  <small class="erro">Escolha a forma de pagamento.</small>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend><span class="num">5</span> Detalhes finais</legend>
+              <div class="grid">
+                <div class="campo full">
+                  <label for="descricao"><i class="fa-regular fa-comment-dots"></i> Descreva sua ideia / observações</label>
+                  <textarea id="descricao" name="descricao" placeholder="Ex.: blusa azul-marinho com a logo no peito esquerdo e nome nas costas" required></textarea>
+                  <small class="erro">Descreva sua ideia (mínimo 10 caracteres).</small>
+                </div>
+                <div class="campo full">
+                  <label class="check big"><input type="checkbox" id="consentimento" name="consentimento" required>
+                    Concordo em ser contatado(a) pela Zart's pelo WhatsApp sobre este orçamento.</label>
+                  <small class="erro">Marque para podermos responder seu pedido.</small>
+                </div>
+              </div>
+            </fieldset>
+            <section class="orcamento" aria-labelledby="orcamento-titulo">
+              <h3 id="orcamento-titulo"><i class="fa-solid fa-calculator"></i> Seu orçamento</h3>
+              <div id="orcamento-corpo" aria-live="polite"></div>
+              <p class="orc-nota">Valor estimado. O orçamento final é confirmado pela Zart's no WhatsApp.</p>
+            </section>
+            <div class="actions">
+              <button type="submit" id="btn-enviar" class="btn whats big"><i class="fa-brands fa-whatsapp"></i> Enviar pedido (WhatsApp + e-mail)</button>
+              <button type="button" class="btn outline" id="btn-copiar"><i class="fa-regular fa-copy"></i> Copiar
+                resumo</button>
+              <button type="reset" class="btn ghost-link" id="btn-limpar">Limpar formulário</button>
+            </div>
+            <p class="seguranca"><i class="fa-solid fa-lock"></i> Seus dados são usados apenas para montar o seu
+              orçamento e não ficam armazenados no site.</p>
+            <p class="aviso" id="aviso" role="status" aria-live="polite" hidden></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer class="futinho">
+    <div class="deco bl" aria-hidden="true" style="width:220px;opacity:.5"></div>
+    <div class="container">
+      <div class="bottom" style="border:0;padding:0">
+        <span>© <span data-year></span> Zart's Estamparia · Rua São Paulo, 885 — Juazeiro do Norte, CE</span>
+        <a href="index.html">← Voltar ao site</a>
+      </div>
+    </div>
+  </footer>
+  <a class="fab-whats" href="#" data-whats aria-label="Falar no WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+  <script src="script.js"></script>
+  <script src="formulario.js"></script>
+</body>
+</html>
